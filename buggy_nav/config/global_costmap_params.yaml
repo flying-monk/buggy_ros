@@ -1,0 +1,39 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: buggy_base
+
+  update_frequency: 10.0 #default 5.0
+  publish_frequency: 5.0 #default 0.5
+
+  static_map: true
+  rolling_window: true
+  resolution: 0.05
+  width: 30
+  height: 30
+  allow_unknown: true
+
+  transform_tolerance: 0.5
+  cost_scaling_factor: 5.0
+  inflation_layer: {inflation_radius: 0.8, cost_scaling_factor: 3.0 }
+
+  planner_frequency: 1.0
+  planner_paitence: 5.0
+
+  use_dijkstra: true
+  use_quadratic: true
+  use_grid_path: false
+  old_navfn_behavior: false
+  default_tolerance: 0
+  lethal_cost: 253
+  neutral_cost: 50
+
+  observation_sources: scan
+  scan: {sensor_frame: buggy_base, data_type: LaserScan, topic: buggy/laser/scan, marking: true, clearing: true}
+
+  plugins:
+  - {name: static_layer, type: "costmap_2d::StaticLayer"}
+  - {name: obstacle_layer, type: 'costmap_2d::ObstacleLayer'}
+#  - {name: range_layer, type: "range_sensor_layer::RangeSensorLayer"}
+  - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
+
+
