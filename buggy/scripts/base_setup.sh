@@ -53,4 +53,26 @@ if [ $packages = true ]; then
     cd ../..
 fi
 
+echo "==================="
+echo "Allowing permissions"
+echo "==================="
+chown -R dev /home/buggy/sar/catkin_ws
+apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essent$
+apt-get install python-pip
+apt install python-rosdep
+rosdep init
+rosdep update
+rosdep fix-permissions
+rosdep update
+
+echo "==================="
+echo "Installing ROSserial"
+echo "==================="
+cd /home/buggy
+sudo apt-get install ros-melodic-rosserial-arduino
+sudo apt-get install ros-melodic-rosserial
+rosrun rosserial_arduino make_libraries.py .
+sudo mv /home/dev/ros_lib /home/dev/sar/arduino/lib/ros_lib
+
+
 echo "Done."

@@ -37,11 +37,31 @@
 System setup:
 ============
 
+---> sudo apt-get install git
 
+---> git clone https://github.com/flying-monk/buggy_ros.git
 
+---> cd buggy_ros/buggy/scripts
 
+---> ./base_system_setup.sh
 
-Once, downloading the buggy repository is done, then you need to navigate to 
+This will install all necessary packages and will install ROS Melodic in your system
+
+Base System setup:
+==================
+
+---> sudo apt-get install git
+
+### install ROS Melodic in Nvidia Jetson Nano and Continue
+
+---> git clone https://github.com/flying-monk/buggy_ros.git
+
+---> cd buggy_ros/buggy/scripts
+
+---> ./base_setup.sh
+
+This will install all necessary packages and will install ROS Melodic in your system
+
 
 Set UDEV Rules (Example) :
 ==========================
