@@ -21,9 +21,9 @@
     <param name="move_base/DWAPlannerROS/xy_goal_tolerance" value="1.0"/>
     <param name="trajectory_planner" value="dwa_local_planner/DWAPlannerROS" />
 
-    <remap from="scan" to="buggy/laser/scan" />
+    <!-- <remap from="scan" to="scan" />
     <remap from="cmd_vel" to="cmd_vel"/>
-    <remap from="odom" to="odom" />
+    <remap from="odom" to="odom" /> -->
   </node> 
 
 </launch>

@@ -1,6 +1,6 @@
 <launch>
 		<!-- Load robot description and start state publisher-->
-    <param name="robot_description" textfile="$(find gbot_core)/urdf/head_2d.urdf" />
+    <param name="robot_description" textfile="$(find buggy_mapping)/urdf/head_2d.urdf" />
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 		
@@ -16,7 +16,7 @@
 		<!-- Start Google Cartographer node with custom configuration file-->
     <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
           -configuration_directory
-              $(find gbot_core)/configuration_files
+              $(find buggy_mapping)/configuration_files
           -configuration_basename gbot_lidar_2d.lua" output="screen">
     </node>
 
