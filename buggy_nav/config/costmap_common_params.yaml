@@ -15,7 +15,7 @@ publish_voxel_map: false
 
 map_type: costmap
 observation_sources: scan
-scan: {sensor_frame: buggy_base, data_type: LaserScan, topic: buggy/laser/scan, marking: true, clearing: true}
+scan: {sensor_frame: base_link, data_type: LaserScan, topic: buggy/laser/scan, marking: true, clearing: true}
 
 cost_factor: 0.55
 neutral_cost: 66

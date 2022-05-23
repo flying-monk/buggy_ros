@@ -1,6 +1,6 @@
 local_costmap:
   global_frame: map
-  robot_base_frame: buggy_base
+  robot_base_frame: base_link
 
   update_frequency: 5.0 #before 12.0
   publish_frequency: 6.0 #before 2.0
@@ -30,7 +30,7 @@ local_costmap:
   combination_method: "Maximum"
 
   observation_sources: scan
-  scan: {sensor_frame: buggy_base, data_type: LaserScan, topic: buggy/laser/scan, marking: true, clearing: true}
+  scan: {sensor_frame: base_link, data_type: LaserScan, topic: buggy/laser/scan, marking: true, clearing: true}
 
   plugins:
   - {name: obstacle_layer, type: 'costmap_2d::ObstacleLayer'}
