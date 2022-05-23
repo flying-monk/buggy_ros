@@ -5,7 +5,7 @@
     <include file="$(find buggy_descripation)/launch/display.launch"/>
 
     <!--Map Server-->
-    <arg name = "map_file" value = "$(find buggy_nav)/maps/ds_office_map.yaml"/>
+    <arg name = "map_file" value = "$(find buggy_nav)/maps/ds_ofice_map.yaml"/>
     <node pkg="map_server" type="map_server" args = "$(arg map_file)" name="map_server"/>
 
   <node pkg="move_base" type="move_base" respawn="false" name="move_base"> 
