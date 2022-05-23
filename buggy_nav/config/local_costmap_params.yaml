@@ -30,7 +30,7 @@ local_costmap:
   combination_method: "Maximum"
 
   observation_sources: scan
-  scan: {sensor_frame: base_link, data_type: LaserScan, topic: buggy/laser/scan, marking: true, clearing: true}
+  scan: {sensor_frame: base_link, data_type: LaserScan, topic: scan, marking: true, clearing: true}
 
   plugins:
   - {name: obstacle_layer, type: 'costmap_2d::ObstacleLayer'}
