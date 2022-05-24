@@ -1,14 +1,14 @@
 <launch>
 
     <!--including the launch file with a navigation world-->
-    <include file="$(find buggy_descripation)/launch/office_world.launch" />
+    <include file="$(find buggy_description)/launch/office_world.launch" />
 
     <include file="$(find buggy_nav)/launch/amcl.launch" />
 
-    <include file="$(find buggy_descripation)/launch/gazebo_display.launch"/>
+    <include file="$(find buggy_description)/launch/gazebo_display.launch"/>
 
     <!--   Buggy -->
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find buggy_descripation)/urdf/buggy_descripation.xacro'"/>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find buggy_description)/urdf/buggy.xacro'"/>
 
     <arg name="x" default="0"/>
     <arg name="y" default="0"/>

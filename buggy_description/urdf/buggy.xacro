@@ -1,0 +1,223 @@
+<?xml version="1.0" ?>
+<robot name="buggy" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find buggy_description)/urdf/materials.xacro" />
+<!-- <xacro:include filename="$(find buggy_description)/urdf/buggy.trans" /> -->
+
+<xacro:include filename="$(find buggy_description)/gazebo/buggy_materials.gazebo" />
+<xacro:include filename="$(find buggy_description)/gazebo/buggy_plugins.gazebo" />
+<xacro:include filename="$(find buggy_description)/gazebo/buggy_physics.gazebo" />
+
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.011871301788699948 0.1783866419374916 0.057476992165636155"/>
+    <mass value="7.990943955271437"/>
+    <inertia ixx="0.042042" ixy="0.000365" ixz="-0.004659" iyy="0.081574" iyz="0.000231" izz="0.11738"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="laser_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.7755575615628914e-17 1.1102230246251565e-16 0.019476889152607244"/>
+    <mass value="1.173731094958711"/>
+    <inertia ixx="0.000501" ixy="-0.0" ixz="0.0" iyy="0.000501" iyz="0.0" izz="0.000703"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.09 -0.1745 -0.115"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/laser_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.09 -0.1745 -0.115"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/laser_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="5.280983235579405e-15 0.017500000000000016 0.0"/>
+    <mass value="2.1363026393951428"/>
+    <inertia ixx="0.001567" ixy="-0.0" ixz="0.0" iyy="0.002697" iyz="-0.0" izz="0.001567"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.31 -0.05"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.31 -0.05"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_right_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="5.2834205004419886e-15 -0.01750000000000005 -2.7755575615628914e-17"/>
+    <mass value="2.1363026393951428"/>
+    <inertia ixx="0.001567" ixy="-0.0" ixz="-0.0" iyy="0.002697" iyz="0.0" izz="0.001567"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.05 -0.05"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/wheel_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.05 -0.05"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/wheel_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castor_right_rear_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0 0.0 -0.018806818181818175"/>
+    <mass value="0.5651594284114136"/>
+    <inertia ixx="0.000153" ixy="0.0" ixz="0.0" iyy="0.000153" iyz="-0.0" izz="0.000161"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.135 -0.095 -0.045"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/castor_right_rear_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.135 -0.095 -0.045"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/castor_right_rear_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castor_front_right_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0 0.0 -0.018806818181818175"/>
+    <mass value="0.5651594284114136"/>
+    <inertia ixx="0.000153" ixy="-0.0" ixz="-0.0" iyy="0.000153" iyz="-0.0" izz="0.000161"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.135 -0.095 -0.045"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/castor_front_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.135 -0.095 -0.045"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/castor_front_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castor_ledt_front_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0 0.0 -0.018806818181818175"/>
+    <mass value="0.5651594284114136"/>
+    <inertia ixx="0.000153" ixy="0.0" ixz="-0.0" iyy="0.000153" iyz="0.0" izz="0.000161"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.135 -0.265 -0.045"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/castor_ledt_front_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.135 -0.265 -0.045"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/castor_ledt_front_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castor_left_rear_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0 0.0 -0.018806818181818175"/>
+    <mass value="0.5651594284114136"/>
+    <inertia ixx="0.000153" ixy="0.0" ixz="0.0" iyy="0.000153" iyz="0.0" izz="0.000161"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.135 -0.265 -0.045"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/castor_left_rear_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.135 -0.265 -0.045"/>
+    <geometry>
+      <mesh filename="package://buggy_description/meshes/castor_left_rear_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid1" type="fixed">
+  <origin rpy="0 0 0" xyz="0.09 0.1745 0.115"/>
+  <parent link="base_link"/>
+  <child link="laser_1"/>
+</joint>
+
+<joint name="Rev2" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.31 0.05"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rev3" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.05 0.05"/>
+  <parent link="base_link"/>
+  <child link="wheel_right_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid4" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.135 0.095 0.045"/>
+  <parent link="base_link"/>
+  <child link="castor_right_rear_1"/>
+</joint>
+
+<joint name="Rigid5" type="fixed">
+  <origin rpy="0 0 0" xyz="0.135 0.095 0.045"/>
+  <parent link="base_link"/>
+  <child link="castor_front_right_1"/>
+</joint>
+
+<joint name="Rigid6" type="fixed">
+  <origin rpy="0 0 0" xyz="0.135 0.265 0.045"/>
+  <parent link="base_link"/>
+  <child link="castor_ledt_front_1"/>
+</joint>
+
+<joint name="Rigid7" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.135 0.265 0.045"/>
+  <parent link="base_link"/>
+  <child link="castor_left_rear_1"/>
+</joint>
+
+</robot>
