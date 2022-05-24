@@ -4,8 +4,7 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="buggy_descripation">
-  <link name="dummy">
-   </link>
+
   <link
     name="base_link">
     <inertial>
@@ -46,10 +45,6 @@
       </geometry>
     </collision>
   </link>
-  <joint name="dummy_joint" type="fixed">
-     <parent link="dummy"/>
-     <child link="base_link"/>
-   </joint>
   <link
     name="wheel_mount_1">
     <inertial>
@@ -1063,7 +1058,7 @@
       xyz="0 0 0" />
   </joint>
   <link
-    name="lidar">
+    name="laser">
     <inertial>
       <origin
         xyz="-1.11022302462516E-16 0.0157959158923206 0.14"
@@ -1084,7 +1079,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://buggy_descripation/meshes/lidar.STL" />
+          filename="package://buggy_descripation/meshes/laser.STL" />
       </geometry>
       <material
         name="">
@@ -1098,7 +1093,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://buggy_descripation/meshes/lidar.STL" />
+          filename="package://buggy_descripation/meshes/laser.STL" />
       </geometry>
     </collision>
   </link>
@@ -1111,8 +1106,8 @@
     <parent
       link="lidar_mount" />
     <child
-      link="lidar" />
+      link="laser" />
     <axis
-      xyz="0 0 0" />
+      xyz="0 1 0" />
   </joint>
 </robot>

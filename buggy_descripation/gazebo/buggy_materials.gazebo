@@ -45,7 +45,7 @@
   <material>${castor_color}</material>
 </gazebo>
 
-<gazebo reference="lidar">
+<gazebo reference="laser">
   <material>${kinect_color}</material>
 </gazebo>
 

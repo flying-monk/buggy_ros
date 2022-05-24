@@ -19,7 +19,7 @@ local_costmap:
   cost_scaling_factor: 4.0
   inflation_layer: {inflation_radius: 0.8, cost_scaling_factor: 3.0 }
   obstacle_layer:
-    observation_sources: laser_scan_sensor
+    observation_sources: scan
     obstacle_range: 4
     raytrace_range: 5
 

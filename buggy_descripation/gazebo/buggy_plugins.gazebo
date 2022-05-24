@@ -26,10 +26,10 @@
 </gazebo>
 
     <!-- RpLidar A2 using CPU -->
-  <gazebo reference="lidar">
+  <gazebo reference="laser">
     <sensor type="ray" name="head_rplidar_sensor">
-      <pose>0 0 0.06 0 0 0</pose>
-      <visualize>false</visualize>
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
       <update_rate>40</update_rate>
       <ray>
         <scan>
@@ -53,7 +53,7 @@
       </ray>
       <plugin name="gazebo_ros_head_rplidar_controller" filename="libgazebo_ros_laser.so">
         <topicName>scan</topicName>
-        <frameName>lidar</frameName>
+        <frameName>laser</frameName>
       </plugin>
     </sensor>
   </gazebo> 
