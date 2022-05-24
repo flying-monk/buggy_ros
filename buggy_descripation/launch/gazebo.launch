@@ -23,8 +23,8 @@
   <arg name="init_pose"/>
   <arg name="buggy_descripation"/>
 
-  <arg name="x_pos" default="1"/>
-  <arg name="y_pos" default="2"/>
+  <arg name="x_pos" default="0"/>
+  <arg name="y_pos" default="0"/>
   <arg name="z_pos" default="0"/>
 
   <param command="$(find xacro)/xacro $(find buggy_descripation)/urdf/buggy_descripation.xacro" name="robot_description"/>

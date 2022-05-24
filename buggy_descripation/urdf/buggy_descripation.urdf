@@ -1061,7 +1061,8 @@
     name="laser">
     <inertial>
       <origin
-        xyz="-1.11022302462516E-16 0.0157959158923206 0.14"
+        
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="0.0887753797922069" />
@@ -1075,7 +1076,7 @@
     </inertial>
     <visual>
       <origin
-        xyz="0 0 0"
+        xyz="-1.11022302462516E-16 0.0157959158923206 0.14"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -1101,13 +1102,13 @@
     name="lidar_joint"
     type="fixed">
     <origin
-      xyz="0 0.105 0"
-      rpy="0 0 0" />
+      xyz="0 0.5 0"
+      rpy="0 -1.5707963 1.5707963" />
     <parent
       link="lidar_mount" />
     <child
       link="laser" />
     <axis
-      xyz="0 1 0" />
+      xyz="0 0 0" />
   </joint>
 </robot>

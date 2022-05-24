@@ -17,22 +17,10 @@ local_costmap:
 
   transform_tolerance: 0.5
   cost_scaling_factor: 4.0
-  inflation_layer: {inflation_radius: 0.8, cost_scaling_factor: 3.0 }
-  obstacle_layer:
-    observation_sources: scan
-    obstacle_range: 4
-    raytrace_range: 5
+  inflation_radius: 0.15
 
   planner_frequency: 2.0
   planner_paitence: 5.0
 
   track_unknown_space: false
   combination_method: "Maximum"
-
-  observation_sources: scan
-  scan: {sensor_frame: base_link, data_type: LaserScan, topic: scan, marking: true, clearing: true}
-
-  plugins:
-  - {name: obstacle_layer, type: 'costmap_2d::ObstacleLayer'}
-  - {name: range_layer,   type: "range_sensor_layer::RangeSensorLayer"}
-  - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
