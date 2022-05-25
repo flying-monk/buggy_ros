@@ -8,7 +8,7 @@
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
   <!-- AMCL -->
-  <include file="$(find buggy_nav)/launch/amcl.launch"/>
+  <include file="$(find buggy_nav)/launch/base_amcl.launch"/>
 
   <!-- move_base -->
   <include file="$(find buggy_nav)/launch/move_base.launch">
