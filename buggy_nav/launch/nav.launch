@@ -1,6 +1,6 @@
 <launch>
 
-    <include file="$(find buggy_nav)/launch/amcl.launch" />
+    <include file="$(find buggy_nav)/launch/base_amcl.launch" />
 
     <include file="$(find buggy_description)/launch/base_display.launch"/>
 
