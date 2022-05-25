@@ -2,7 +2,7 @@
 
     <include file="$(find buggy_nav)/launch/amcl.launch" />
 
-    <include file="$(find buggy_description)/launch/gazebo_display.launch"/>
+    <include file="$(find buggy_description)/launch/base_display.launch"/>
 
     <!--Map Server-->
     <arg name = "map_file" value = "$(find buggy_nav)/maps/ds_ofice_map.yaml"/>
