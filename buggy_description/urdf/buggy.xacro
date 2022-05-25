@@ -29,7 +29,7 @@
   </collision>
 </link>
 
-<link name="laser_1">
+<link name="laser">
   <inertial>
     <origin rpy="0 0 0" xyz="2.7755575615628914e-17 1.1102230246251565e-16 0.019476889152607244"/>
     <mass value="1.173731094958711"/>
@@ -38,14 +38,14 @@
   <visual>
     <origin rpy="0 0 0" xyz="-0.09 -0.1745 -0.115"/>
     <geometry>
-      <mesh filename="package://buggy_description/meshes/laser_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://buggy_description/meshes/laser.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin rpy="0 0 0" xyz="-0.09 -0.1745 -0.115"/>
     <geometry>
-      <mesh filename="package://buggy_description/meshes/laser_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://buggy_description/meshes/laser.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -179,7 +179,7 @@
 <joint name="Rigid1" type="fixed">
   <origin rpy="0 0 0" xyz="0.09 0.1745 0.115"/>
   <parent link="base_link"/>
-  <child link="laser_1"/>
+  <child link="laser"/>
 </joint>
 
 <joint name="Rev2" type="continuous">
