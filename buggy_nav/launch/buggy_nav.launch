@@ -5,7 +5,9 @@
   <arg name="map_file" default="$(find buggy_nav)/maps/ds_ofice_map.yaml"/>
 
   <!-- Map server -->
-  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)">
+  <param name="frame_id" value="/map"/>
+  </node>
 
   <!-- AMCL -->
   <include file="$(find buggy_nav)/launch/base_amcl.launch"/>
