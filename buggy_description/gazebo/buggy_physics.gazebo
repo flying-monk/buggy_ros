@@ -14,7 +14,7 @@
   <gravity>true</gravity>
 </gazebo>
 
-<gazebo reference="laser_1">
+<gazebo reference="laser">
 
   <mu1>${standard_friction}</mu1>
   <mu2>${standard_friction}</mu2>

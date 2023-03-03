@@ -15,7 +15,7 @@
   <material>${body_color}</material>
 </gazebo>
 
-<gazebo reference="laser_1">
+<gazebo reference="laser">
   <material>${lidar_color}</material>
 </gazebo>
 
