@@ -40,8 +40,8 @@ void right_cmd_vel_CB(const std_msgs::Int16& tspeed){
 ros::Publisher left_wheel_encoder("left_wheel_encoder",&left_wheel);
 ros::Publisher right_wheel_encoder("right_wheel_encoder",&right_wheel);
 
-ros::Subscriber<std_msgs::Int16> left_motor_cmd("left_motor_cmd",&left_cmd_vel_CB);
-ros::Subscriber<std_msgs::Int16> right_motor_cmd("right_motor_cmd",&right_cmd_vel_CB);
+ros::Subscriber<std_msgs::Int16> left_motor_cmd("left_motor_cmd",&cmd_vel_cb);
+ros::Subscriber<std_msgs::Int16> right_motor_cmd("right_motor_cmd",&cmd_vel_cb);
 
 void handle_cmd (const geometry_msgs::Twist& cmd_vel) {
   noCommLoops = 0;                                          
@@ -54,7 +54,7 @@ void handle_cmd (const geometry_msgs::Twist& cmd_vel) {
   speed_req_right = speed_req + angular_speed_req*(wheelbase/2);    
 }
 
-void cmd_vel_cb(const geometry_msgs::Twist & msg) {
+void cmd_vel_cb(const geometry_msgs::Twist & msg, const std_msgs::Int16& tspeed) {
 
   const float x = msg.linear.x;
   const float z_rotation = msg.angular.z;
@@ -64,7 +64,7 @@ void cmd_vel_cb(const geometry_msgs::Twist & msg) {
       state_vel +=10;
       state_vel = min(state_vel, 255);
     }
-    Motors::MoveFwd(state_vel);
+    Motors::MoveFwd(tspeed.data);
     state = FWD;
   }
   else if (x < 0) {
@@ -73,7 +73,7 @@ void cmd_vel_cb(const geometry_msgs::Twist & msg) {
       state_vel = min(state_vel, 255);
 
     }
-    Motors::MoveBwd(state_vel);
+    Motors::MoveBwd(tspeed.data);
     state = BWD;
   }
   else if (z_rotation < 0) {
@@ -82,7 +82,7 @@ void cmd_vel_cb(const geometry_msgs::Twist & msg) {
       state_vel = min(state_vel, 255);
 
     }
-    Motors::MoveRight (state_vel);
+    Motors::MoveRight (tspeed.data);
     state = RIGHT;
   }  
   else if (z_rotation > 0) {
@@ -91,7 +91,7 @@ void cmd_vel_cb(const geometry_msgs::Twist & msg) {
       state_vel = min(state_vel, 255);
 
     }
-    Motors::MoveLeft (state_vel);
+    Motors::MoveLeft (tspeed.data);
     state = LEFT;
   }
   else {
@@ -102,7 +102,7 @@ void cmd_vel_cb(const geometry_msgs::Twist & msg) {
 
 }
 
-ros::Subscriber<geometry_msgs::Twist> sub("cmd_vel", cmd_vel_cb);
+//ros::Subscriber<geometry_msgs::Twist> sub("cmd/_vel", cmd_vel_cb);
 
 void setup() {
   Motors::init_motors();
@@ -113,7 +113,7 @@ void setup() {
   nh.advertise(right_wheel_encoder);
   nh.subscribe(left_motor_cmd);
   nh.subscribe(right_motor_cmd);
-  nh.subscribe(sub);
+//  nh.subscribe(su/b);
 }
 
 void loop() {

@@ -1,13 +1,13 @@
 #include <Arduino.h>
 
 #define encoder_left_pin_A 2
-#define encoder_left_pin_B 4
+#define encoder_left_pin_B 3
 
-#define encoder_right_pin_A 3
-#define encoder_right_pin_B 5
+#define encoder_right_pin_A 20
+#define encoder_right_pin_B 21
 
-#define left_motor_direction 6
-#define right_motor_direction 8
+#define left_motor_direction A1
+#define right_motor_direction A0
 
 #define left_motor_pwm 10
 #define right_motor_pwm 11
@@ -159,7 +159,7 @@ namespace Motors{
     left_motor_pulse += (motor_dir[0] == LOW ? current_left_motor_pulse : -current_left_motor_pulse);
     current_left_motor_pulse = 0;
 
-    right_motor_pulse += (motor_dir[0] == LOW ? current_right_motor_pulse : -current_right_motor_pulse);
+    right_motor_pulse += (motor_dir[1] == HIGH ? current_right_motor_pulse : -current_right_motor_pulse);
     current_right_motor_pulse = 0;
 
     updateMotorState(0, left_motor_direction, left_motor_pwm);
@@ -167,32 +167,32 @@ namespace Motors{
     
   }
 
-  void MoveBwd(const size_t speed) {
-    digitalWrite(right_motor_direction, right_fwd);
-    digitalWrite(left_motor_direction, !left_fwd);
-    analogWrite(right_motor_pwm, speed);
-    analogWrite(left_motor_pwm, speed);
-  }
-  
-  void MoveFwd(const size_t speed) {
+  void MoveBwd(const size_t speed_data) {
     digitalWrite(right_motor_direction, !right_fwd);
     digitalWrite(left_motor_direction, left_fwd);
-    analogWrite(right_motor_pwm, speed);
-    analogWrite(left_motor_pwm, speed);
+    analogWrite(right_motor_pwm, speed_data);
+    analogWrite(left_motor_pwm, speed_data);
   }
   
-  void MoveRight(const size_t speed) {
+  void MoveFwd(const size_t speed_data) {
+    digitalWrite(right_motor_direction, right_fwd);
+    digitalWrite(left_motor_direction, !left_fwd);
+    analogWrite(right_motor_pwm, speed_data);
+    analogWrite(left_motor_pwm, speed_data);
+  }
+  
+  void MoveRight(const size_t speed_data) {
     digitalWrite(right_motor_direction, right_fwd);
     digitalWrite(left_motor_direction, left_fwd);
-    analogWrite(right_motor_pwm, speed);
-    analogWrite(left_motor_pwm, speed);
+    analogWrite(right_motor_pwm, speed_data);
+    analogWrite(left_motor_pwm, speed_data);
   }
   
-  void MoveLeft(const size_t speed) {
+  void MoveLeft(const size_t speed_data) {
     digitalWrite(right_motor_direction, !right_fwd);
     digitalWrite(left_motor_direction, !left_fwd);
-    analogWrite(right_motor_pwm, speed);
-    analogWrite(left_motor_pwm, speed);
+    analogWrite(right_motor_pwm, speed_data);
+    analogWrite(left_motor_pwm, speed_data);
   }
   
   void MoveStop() {
